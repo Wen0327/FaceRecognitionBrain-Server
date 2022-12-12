@@ -33,9 +33,7 @@ app.use(cors());
 
 
 // postman
-app.get("/", (req, res) => {
-  res.send(database.users);
-});
+app.get("/", (req, res) => {res.send(database.users)});
 
 //SignIn
 app.post("/SignIn",(req, res)=>{signIn.handleSignIn(req, res, database, bcrypt)});
@@ -78,6 +76,6 @@ app.put("/image", (req, res) => {
 });
 
 //listen to the port 3000
-app.listen(3000, () => {
+app.listen( process.env.PORT || 3000, () => {
   console.log("app is running on port 3000");
 });
